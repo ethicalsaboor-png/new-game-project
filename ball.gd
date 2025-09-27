@@ -24,7 +24,10 @@ func start_ball() -> void:
 	$"../cpu".scale.y = 1
 	var screen_size = get_viewport_rect().size
 	position = screen_size / 2
-	velocity = Vector2(randf_range(-1, 1), randf_range(-0.5, 0.5)).normalized() * speed
+	var xx = randi_range(0, 1)
+	if xx == 0:
+		xx = -1
+	velocity = Vector2(xx, randf_range(-0.75, 0.75)).normalized() * speed
 
 
 func _on_area_entered(area: Area2D) -> void:
